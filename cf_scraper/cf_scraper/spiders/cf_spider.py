@@ -47,7 +47,7 @@ class CfSpider(BaseSpider):
         score = 0
         user = response.url.split('/')[-1][:-3]
         if(scores):
-            if(len(scores) == 1 ):
+            if(len(scores) == 1):
                 score = scores[0] * 52/10
             elif(len(scores) == 2):
                 score = sum(scores) * 18/10

@@ -5,8 +5,8 @@ lines = [x.split(',') for x in lines]
 lines = sorted(lines, cmp=lambda x, y: cmp(int(x[1]),int(y[1])))
 # print lines
 prev_score = 0
-grades = [2000,3070,4424,6448]
-cur_grade = 10
+grades = [1000,2000,3070,4424,6448]
+cur_grade = 11
 idx = 0
 for u, score, nr in lines:
 	if(idx<len(grades) and int(score) >= grades[idx] and prev_score < grades[idx]):
