@@ -4,7 +4,7 @@ from scrapy.item import Item, Field
 
 class UserItem(Item):
     id = Field()
-    score = Field()
+    # score = Field()
 class UsersSpider(BaseSpider):
     name = "users"
     allowed_domains = ["codeforces.com"]
@@ -21,7 +21,7 @@ class UsersSpider(BaseSpider):
         for name in sel.xpath('//table//a[contains(@class,"rated-user")]/text()').extract()[20:]:
         	userItem = UserItem()
         	userItem['id'] = name
-        	userItem['score'] = 0
+        	# userItem['score'] = 0
         	users.append(userItem)
         	print name
         return users

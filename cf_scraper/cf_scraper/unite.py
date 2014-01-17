@@ -13,4 +13,4 @@ for u, score, nr in lines:
 		cur_grade -= 1
 		idx += 1
 	prev_score = int(score)
-	f.write(u + ',' + score + ',' + nr[:-1] + ',' + str(cur_grade) + '\n')
+	f.write(u[:-3] + ',' + score + ',' + nr[:-1] + ',' + str(cur_grade) + '\n')
