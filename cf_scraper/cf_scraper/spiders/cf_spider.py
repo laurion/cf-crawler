@@ -5,6 +5,7 @@ from scrapy.contrib.spiders.init import InitSpider
 from scrapy.http import Request, FormRequest
 from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
 from scrapy.contrib.spiders import Rule
+import re
 
 class UserItem(Item):
     id = Field()
@@ -18,8 +19,8 @@ class CfSpider(BaseSpider):
         "http://codeforces.com/contests"
     ]
 
-    FIRST_CONTEST = 352
-    LAST_CONTEST = 381
+    FIRST_CONTEST = 394
+    LAST_CONTEST = 441
 
     user_page = 'http://codeforces.com/contests/with/'
     # theUser = ''
@@ -38,6 +39,8 @@ class CfSpider(BaseSpider):
         scores = []
         nr = 0
         for rank, href in zip(ranks, hrefs):
+            # import pdb; pdb.set_trace()
+            href = re.search('/contest/.*/standings',href).group(0)
             if self.FIRST_CONTEST <= int(href[9:-10]) <= self.LAST_CONTEST:
                 scores.append(int(rank))
                 nr += 1
@@ -57,7 +60,7 @@ class CfSpider(BaseSpider):
             print user, score, nr
 
         # print score
-    
+
     # def get_score(self, rank, href):
     #     r = Request(url="http://codeforces.com" + href, callback=self.parse_contest)
     #     r.meta['rank'] = rank
@@ -74,4 +77,3 @@ class CfSpider(BaseSpider):
     #     sel = Selector(response)
     #     # import pdb;pdb.set_trace()
     #     print sel.xpath('//tr//text()[contains(.,"%s")/..]' % self.theUser).extract()
-
