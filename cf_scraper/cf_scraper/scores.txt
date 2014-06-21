@@ -20,8 +20,8 @@ TheSlayer1006%0D,764,1
 teodor94%0D,719,5
 vld%0D,572,3
 r.dragos0%0D,552,5
-mmd.avi,501,11
-Wyvern77,2545,5
+mmd.avi%0D,501,11
+Wyvern77%0D,2545,5
 Mikester%0D,361,6
 klamathix%0D,530,5
 hcretescu%0D,634,7
